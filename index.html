@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/solid.css" integrity="sha384-LA8Ug4T/nhVkyhrSmSirsoAo9iDrBk8E7U80aSPeD+w3vO8PzOJIS6agGcbIwwX0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/fontawesome.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div class="actions">
+      <div id="sliders">
+        <div>
+          <div class="input">
+            <label>Grid Size</label>
+            <input onchange="updateGridSize(this.value)" type="range" min="1" max="100" value="9" id="gridSize">
+          </div>
+          <div class="input">
+            <label>Frame Rate</label>
+            <input onchange="updateFrameRate(this.value)" type="range" min="1" max="60" value="30" id="frameRate">
+          </div>
+        </div>
+        <label id="percentage">000%</label>
+      </div>
+      <div id="buttons">
+        <input onchange="importJson()" accept=".json" id="fileInput" type="file" name="name" style="display: none;"></input>
+        <button onclick="document.getElementById('fileInput').click();" title="Import" class="button" onclick="exportJson()">
+          <i class="fas fa-file-import"></i>
+        </button>
+        <button class="button" title="Export" onclick="exportJson()">
+          <i class="fas fa-file-export"></i>
+        </button>
+        <button class="button" onclick="exportPng()" title="Image (PNG)">
+          <i class="fas fa-images"></i>
+        </button>
+        <button class="button" onclick="reset()" title="Reset">
+          <i class="fas fa-undo"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="cell.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
