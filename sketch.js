@@ -38,6 +38,10 @@ function draw() {
   });
 
   stack.forEach(cell => {
+    if (!Cell.isCell(cell)) {
+      cell = Cell.deserialize(Cell.serialize(cell));
+    }
+
     cell.highlight([251, 197, 49, 50]);
   });
 
